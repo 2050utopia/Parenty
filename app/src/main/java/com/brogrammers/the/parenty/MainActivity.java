@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +37,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+             String phpapi="";
+                Map<String,String> params=new HashMap<String, String>();
+                params.put("string",et_string.getText().toString());
+                params.put("int",et_int.getText().toString());
+                params.put("longint",et_longint.getText().toString());
+                params.put("date",et_date.getText().toString());
+                params.put("time",et_time.getText().toString());
+
+
+
 
 
             }
@@ -43,7 +55,12 @@ public class MainActivity extends AppCompatActivity {
 
         final DatePickerDialog.OnDateSetListener d= new DatePickerDialog.OnDateSetListener() {
             @Override
-            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+
+                cal.set(Calendar.YEAR,year);
+                cal.set(Calendar.MONTH,month);
+                cal.set(Calendar.DAY_OF_MONTH,day);
+                et_date.setText(cal.get(Calendar.DAY_OF_MONTH)+"-"+cal.get(Calendar.MONTH)+"-"+cal.get(Calendar.YEAR));
 
 
             }
@@ -52,8 +69,11 @@ public class MainActivity extends AppCompatActivity {
 
         final TimePickerDialog.OnTimeSetListener t=new TimePickerDialog.OnTimeSetListener() {
             @Override
-            public void onTimeSet(TimePicker timePicker, int i, int i1) {
+            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
 
+                cal.set(Calendar.HOUR_OF_DAY,hour);
+                cal.set(Calendar.MINUTE,minute);
+                et_time.setText(cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE)+" "+cal.get(Calendar.YEAR));
 
             }
         };
