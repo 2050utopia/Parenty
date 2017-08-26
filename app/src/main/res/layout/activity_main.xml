@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="String"
-            android:inputType="textPersonName"
+            android:inputType="textNoSuggestions"
             android:textColorHint="@android:color/darker_gray" />
 
         <EditText
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Int"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:textColorHint="@android:color/darker_gray" />
 
         <EditText
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="LongIntcol"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:textColorHint="@android:color/darker_gray" />
 
         <EditText
@@ -48,7 +48,7 @@
             android:ems="10"
             android:focusable="false"
             android:hint="Date"
-            android:inputType="textPersonName|datetime"
+            android:inputType="date"
             android:selectAllOnFocus="false"
             android:textColorHint="@android:color/darker_gray" />
 
@@ -59,7 +59,7 @@
             android:ems="10"
             android:focusable="false"
             android:hint="Time"
-            android:inputType="textPersonName"
+            android:inputType="textNoSuggestions"
             android:textColorHint="@android:color/darker_gray" />
 
         <Button
