@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Parenty</string>
+    <string name="newUser">Not a Member yet? Sign Up here.</string>
 </resources>
