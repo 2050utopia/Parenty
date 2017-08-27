@@ -40,22 +40,6 @@
                 android:textSize="30sp" />
 
 
-            <!-- <EditText
-                android:layout_marginTop="50dp"
-                android:id="@+id/et_email"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
-                />
-
-            <EditText
-                android:layout_marginTop="10dp"
-                android:id="@+id/et_password"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Password"
-                />-->
-
             <EditText
                 android:id="@+id/et_email"
                 android:layout_width="match_parent"
@@ -107,15 +91,16 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btn_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                android:text="Login" />
+                android:text="Login"
+                android:onClick="onClick"/>
 
             <TextView
-                android:id="@+id/createAccount"
+                android:id="@+id/tv_createAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
