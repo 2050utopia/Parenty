@@ -19,9 +19,7 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".login">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".login"></activity>
+
         <activity android:name=".otpverification">
         </activity>
         <activity android:name=".usertypecheck">
