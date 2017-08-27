@@ -1,7 +1,11 @@
 package com.brogrammers.the.parenty;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -29,11 +33,15 @@ public class MainActivity extends AppCompatActivity {
     EditText et_string,et_int,et_longint,et_date,et_time;
     Button btn_send;
     Calendar cal=Calendar.getInstance();
+    private PendingIntent pendingIntent;
+    private AlarmManager manager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         et_string=(EditText)findViewById(R.id.et_string);
         et_int=(EditText)findViewById(R.id.et_int);
@@ -42,6 +50,16 @@ public class MainActivity extends AppCompatActivity {
         et_time=(EditText)findViewById(R.id.et_time);
         Button btn_send=(Button)findViewById(R.id.btn_send);
 
+        //Intent intent = new Intent(this, GeoLocationService.class);
+        //startService(intent);
+
+        Intent locationintent=new Intent(this,GeoLocationListener.class);
+        pendingIntent=PendingIntent.getBroadcast(this,0,locationintent,0);
+        manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        int interval = 10000;
+
+        manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
+        Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
 
 
         btn_send.setOnClickListener(new View.OnClickListener() {
