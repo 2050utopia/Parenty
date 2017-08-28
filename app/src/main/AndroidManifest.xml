@@ -28,9 +28,9 @@
 
 
         <!--Vineeth-->
-        <activity android:name=".login" />
-        <activity android:name=".otpverification"></activity>
-        <activity android:name=".usertypecheck" />
+        <activity android:name=".Login" />
+        <activity android:name=".Passcode"></activity>
+        <activity android:name=".SetChildPhone" />
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
