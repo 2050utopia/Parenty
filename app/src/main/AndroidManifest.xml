@@ -11,6 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!--Sandesh-->
         <service android:name=".GeoLocationService"/>
         <receiver android:name=".GeoLocationListener"> </receiver>
         <receiver android:name=".StartTrackingAtBoot">
@@ -18,14 +20,14 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        
-        <service android:name=".GeoLocationService" />
-
-        <receiver android:name=".GeoLocationListener" />
-
         <activity android:name=".MainActivity">
 
         </activity>
+
+
+
+
+        <!--Vineeth-->
         <activity android:name=".login" />
         <activity android:name=".otpverification"></activity>
         <activity android:name=".usertypecheck" />
