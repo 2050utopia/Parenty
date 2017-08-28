@@ -22,7 +22,7 @@ public class GeoLocationListener extends BroadcastReceiver {
         Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 
 
-       
+
         Toast.makeText(context, location.getLongitude()+" and "+location.getLatitude()+"", Toast.LENGTH_SHORT).show();
 
     }
