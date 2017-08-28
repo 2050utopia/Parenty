@@ -43,11 +43,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".otpverification">
-        </activity>
-        <activity android:name=".usertypecheck">
-
-        </activity>
+       
     </application>
 
 </manifest>
