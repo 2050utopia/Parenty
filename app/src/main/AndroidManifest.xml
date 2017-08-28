@@ -3,6 +3,7 @@
     package="com.brogrammers.the.parenty">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"> </uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service android:name=".GeoLocationService"/>
-        <receiver android:name=".GeoLocationListener"></receiver>
+        <receiver android:name=".GeoLocationListener"> </receiver>
+        <receiver android:name=".StartTrackingAtBoot">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

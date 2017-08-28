@@ -1,12 +1,15 @@
 package com.brogrammers.the.parenty;
 
+import android.Manifest;
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
         et_string=(EditText)findViewById(R.id.et_string);
         et_int=(EditText)findViewById(R.id.et_int);
         et_longint=(EditText)findViewById(R.id.et_longint);
@@ -52,6 +56,13 @@ public class MainActivity extends AppCompatActivity {
 
         //Intent intent = new Intent(this, GeoLocationService.class);
         //startService(intent);
+
+        int permissionCheck = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.RECEIVE_BOOT_COMPLETED);
+        if(permissionCheck== PackageManager.PERMISSION_GRANTED)
+        {
+            Toast.makeText(this, "has permission", Toast.LENGTH_SHORT).show();
+        }
 
         Intent locationintent=new Intent(this,GeoLocationListener.class);
         pendingIntent=PendingIntent.getBroadcast(this,0,locationintent,0);
