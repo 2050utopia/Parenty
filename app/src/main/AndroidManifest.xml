@@ -18,7 +18,7 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <activity android:name=".MainActivity" >
+        
         <service android:name=".GeoLocationService" />
 
         <receiver android:name=".GeoLocationListener" />
@@ -52,11 +52,7 @@
 
         </activity>
 
-        <activity android:name=".otpverification">
-        </activity>
-        <activity android:name=".usertypecheck">
 
-        </activity>
     </application>
 
 </manifest>
