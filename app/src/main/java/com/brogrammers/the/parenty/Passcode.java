@@ -8,6 +8,6 @@ public class Passcode extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_Passcode);
+        setContentView(R.layout.activity_passcode);
     }
 }

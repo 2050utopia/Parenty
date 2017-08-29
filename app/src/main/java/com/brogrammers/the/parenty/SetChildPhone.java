@@ -8,6 +8,6 @@ public class SetChildPhone extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_SetChildPhone);
+        setContentView(R.layout.activity_setchildphone);
     }
 }
