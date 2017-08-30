@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
@@ -70,7 +71,15 @@ public class GeoLocationListener extends BroadcastReceiver {
             }
         };
 
-        DbAPICall sendLocation =new DbAPICall(params,"sendLocation.php",responseListener);
+        Response.ErrorListener errorListener=new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Toast.makeText(context,error.getMessage(),Toast.LENGTH_LONG).show();
+            }
+        };
+
+        DbAPICall sendLocation =new DbAPICall(params,"sendLocation.php",responseListener,errorListener);
         RequestQueue Queue=Volley.newRequestQueue(context);
         Queue.add(sendLocation);
 

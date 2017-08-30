@@ -16,9 +16,9 @@ public class DbAPICall extends StringRequest {
 
 
 
-    public DbAPICall(Map params, String phpapi, Response.Listener<String> listener)
+    public DbAPICall(Map params, String phpapi, Response.Listener<String> listener,Response.ErrorListener errorListener)
     {
-        super(Method.POST,REGISTER_REQUEST_URL+phpapi,listener,null);
+        super(Method.POST,REGISTER_REQUEST_URL+phpapi,listener,errorListener);
         this.params=params;
     }
 
