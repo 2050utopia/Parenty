@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.brogrammers.the.parenty">
+
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"> </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
+
     <application
         android:name=".Parenty"
         android:allowBackup="true"
@@ -13,29 +15,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--Sandesh-->
-        <service android:name=".GeoLocationService"/>
-        <receiver android:name=".GeoLocationListener"> </receiver>
+        <!-- Sandesh -->
+        <service android:name=".GeoLocationService" />
+
+        <receiver android:name=".GeoLocationListener"></receiver>
         <receiver android:name=".StartTrackingAtBoot">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <activity android:name=".MainActivity">
 
-        </activity>
+        <activity android:name=".MainActivity"></activity>
 
-
-
-
-        <!--Vineeth-->
-        <activity android:name=".Login" >
+        <!-- Vineeth -->
+        <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Passcode"></activity>
+        <activity android:name=".Passcode" />
         <activity android:name=".SetChildPhone" />
 
         <!--
@@ -50,11 +50,8 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".MapsActivity">
-        </activity>
-
-
+        <activity android:name=".MapsActivity"></activity>
+        <activity android:name=".Registration"></activity>
     </application>
 
 </manifest>

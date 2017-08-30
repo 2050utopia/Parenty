@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,7 +37,6 @@ public class Login extends AppCompatActivity {
     Button btn_login;
     TextView tv_createAccount;
     EditText et_mobileno,et_password;
-    CheckBox cb_showhide_pwd;
     SharedPreferences sharedPreferences;
 
     @Override
@@ -66,7 +64,7 @@ public class Login extends AppCompatActivity {
 
 
                 String phpapi = ((Parenty) Login.this.getApplication()).getDb_url()+"verifyLogin.php";
-                Toast.makeText(Login.this,phpapi,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Login.this,phpapi,Toast.LENGTH_SHORT).show();
 
                 StringRequest verifyLogin=new StringRequest(Request.Method.POST,phpapi,
                         new Response.Listener<String>() {
@@ -90,7 +88,7 @@ public class Login extends AppCompatActivity {
                                         }
                                         else
                                         {
-                                            Toast.makeText(Login.this,"empty",Toast.LENGTH_SHORT).show();
+                                            //Toast.makeText(Login.this,"empty",Toast.LENGTH_SHORT).show();
                                             AlertDialog alertDialog = new AlertDialog.Builder(Login.this).create();
                                             alertDialog.setTitle("Sorry");
                                             alertDialog.setMessage("Invalid MobileNo/Password");
@@ -165,14 +163,14 @@ public class Login extends AppCompatActivity {
                 queue.add(verifyLogin);
 
 
-
             }
         });
 
         tv_createAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent_signup=new Intent(Login.this,Passcode.class);
+                Intent intent_signup=new Intent(Login.this,Registration.class);
+                Login.this.startActivity(intent_signup);
             }
         });
 
