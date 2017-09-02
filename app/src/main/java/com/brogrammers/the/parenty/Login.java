@@ -46,11 +46,11 @@ public class Login extends AppCompatActivity {
 
         sharedPreferences=getSharedPreferences("parentdetails", Context.MODE_PRIVATE);
 
-        /*if(!sharedPreferences.getString("username","").isEmpty())
+        if(!sharedPreferences.getString("username","").isEmpty())
         {
-            Intent intent_dash=new Intent(Login.this,Passcode.class);
+            Intent intent_dash=new Intent(Login.this,DashBoard.class);
             startActivity(intent_dash);
-        }*/
+        }
 
         btn_login=(Button)findViewById(R.id.btn_login);
         tv_createAccount=(TextView)findViewById(R.id.tv_createAccount);
@@ -78,20 +78,39 @@ public class Login extends AppCompatActivity {
 
                                     if(success)
                                     {
-                                        String username=jsonObject.getString("username");
-                                        if(!username.equals("empty"))
+                                        Boolean validmobile=new Boolean(jsonObject.getString("validmobile"));
+                                        if(validmobile)
                                         {
-                                            sharedPreferences=getSharedPreferences("parentdetails", Context.MODE_PRIVATE);
-                                            SharedPreferences.Editor editor=sharedPreferences.edit();
-                                            editor.putString("username",response);
-                                            editor.commit();
+                                            Boolean validpassword=new Boolean(jsonObject.getString("validpassword"));
+                                            if(validpassword)
+                                            {
+                                                String username=jsonObject.getString("username");
+                                                sharedPreferences=getSharedPreferences("parentdetails", Context.MODE_PRIVATE);
+                                                SharedPreferences.Editor editor=sharedPreferences.edit();
+                                                editor.putString("username",username);
+                                                editor.commit();
+                                                Intent intent_dash=new Intent(Login.this,DashBoard.class);
+                                                startActivity(intent_dash);
+                                            }
+                                            else
+                                            {
+                                                AlertDialog alertDialog = new AlertDialog.Builder(Login.this).create();
+                                                alertDialog.setTitle("Sorry");
+                                                alertDialog.setMessage("Invalid Password");
+                                                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                                        new DialogInterface.OnClickListener() {
+                                                            public void onClick(DialogInterface dialog, int which) {
+                                                                dialog.dismiss();
+                                                            }
+                                                        });
+                                                alertDialog.show();
+                                            }
                                         }
                                         else
                                         {
-                                            //Toast.makeText(Login.this,"empty",Toast.LENGTH_SHORT).show();
                                             AlertDialog alertDialog = new AlertDialog.Builder(Login.this).create();
                                             alertDialog.setTitle("Sorry");
-                                            alertDialog.setMessage("Invalid MobileNo/Password");
+                                            alertDialog.setMessage("Invalid MobileNo");
                                             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                                                     new DialogInterface.OnClickListener() {
                                                         public void onClick(DialogInterface dialog, int which) {
@@ -100,6 +119,7 @@ public class Login extends AppCompatActivity {
                                                     });
                                             alertDialog.show();
                                         }
+
                                     }
 
                                 } catch (JSONException e) {
